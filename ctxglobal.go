@@ -13,10 +13,10 @@ const (
 var appName string
 
 func SetAppName(s string){
-	if appName != " " {
+	if appName != "" {
 		panic("Cannot call AppName twice")
 	}
-	if s == " " {
+	if s == "" {
 		panic("AppName must not be empty")
 	}
 	appName = s
@@ -28,7 +28,7 @@ func AppName(ctx context.Context) string {
 		return v.(string)
 	}
 
-	if appName == " " {
+	if appName == "" {
 		panic("Missing AppName in ctx and global")
 	}
 
